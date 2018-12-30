@@ -1,0 +1,21 @@
+<p>
+  sportwoman works!
+</p>
+
+<div style="text-align:center">
+  <form  id=filter>
+    <label>Find Your Acceseries</label><br>
+      <input type="text" name='term'  [(ngModel)] = "term" />
+   </form>
+
+   <div *ngFor =" let p of prodName | filter: term | paginate: { itemsPerPage: 10, currentPage: p }">
+      <div class=container-fluid>
+        <div class="row">
+           <div class="col-sm-3"> {{p.id}}.) <img src="{{p.BigImage}}"height=150 width=150/></div>
+           <div class="col-sm-3"><h4>{{p.name}}</h4></div>
+            <!-- <div class="col-sm-3"><h4>{{p.description}}</h4></div> -->
+           <div class="col-sm-3"><b><h4> {{p.price}} </h4></b></div><a href="{{p.link}}" target ="page" >BUY</a></div>
+      </div>
+   </div>
+  <pagination-controls (pageChange) = " p = $event "> </pagination-controls >
+  </div >
